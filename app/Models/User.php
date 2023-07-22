@@ -12,9 +12,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-
-
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -35,7 +32,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    protected $guarded =[
+    protected $guarded = [
         'is_admin',
     ];
 }
