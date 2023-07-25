@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->bigInteger('start_time');
-            $table->bigInteger('end_time');
+            $table->timestamp('start_time')->useCurrent();
+            $table->timestamp('end_time');
         });
     }
 

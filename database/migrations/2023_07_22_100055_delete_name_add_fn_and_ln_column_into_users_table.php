@@ -24,7 +24,15 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            if (!Schema::hasColumn('users', 'name')) {
+                $table->string('name')->nullable();
+            }
+            if (Schema::hasColumn('users', 'first_name')) {
+                $table->dropColumn('first_name');
+            }
+            if (Schema::hasColumn('users', 'last_name')) {
+                $table->dropColumn('last_name');
+            }
         });
     }
 };
