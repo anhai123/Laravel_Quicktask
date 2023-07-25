@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('product_store', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('product_id')->unsigned()->index();
+            $table->bigInteger('product_id')->unsigned()->index()->nullable();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
 
-            $table->integer('store_id')->unsigned()->index();
+            $table->bigInteger('store_id')->unsigned()->index()->nullable();
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
         });
     }
