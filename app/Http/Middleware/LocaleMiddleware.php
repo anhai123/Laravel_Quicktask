@@ -5,8 +5,9 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-
-class CheckAdmin
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
+class LocaleMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,16 +16,10 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user = auth()->user();
-
-        if ($user && $user->is_admin) {
-            return $next($request);
+        if (Session::get('lang')) {
+            App::setLocale(Session::get('lang'));
         }
-<<<<<<< HEAD
-=======
-        return redirect('/');
 
->>>>>>> a078951 (Chapter 9)
-        abort(401);
+        return $next($request);
     }
 }
