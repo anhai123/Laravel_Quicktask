@@ -12,7 +12,8 @@ class Product extends Model
 
       public $timestamps = true;
       protected $primaryKey = 'id';
-      public function stores() {
-        return $this->belongsToMany('App\Store', 'product_store', 'store_id', 'product_id');
+      public function stores()
+      {
+            return $this->belongsToMany('App\Store', 'product_store', 'store_id', 'product_id');
       }
 }
