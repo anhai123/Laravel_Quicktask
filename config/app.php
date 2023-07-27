@@ -159,6 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
+        // LaravelLang\LangServiceProvider::class,
 
         /*
          * Application Service Providers...
