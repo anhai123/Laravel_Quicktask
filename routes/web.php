@@ -22,6 +22,7 @@ Route::get('/', function () {
 });
 Route::resource('tasks', TaskController::class);
 Route::prefix('/users')
+    ->middleware('admin')
     ->controller(UserController::class)
     ->group(function () {
         Route::get('/', 'index')->name('users.index');
