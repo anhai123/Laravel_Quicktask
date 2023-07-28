@@ -18,8 +18,6 @@ class CheckAdmin
         if ($request->user() && $request->user()->is_admin) {
             return $next($request);
         }
-        return redirect('/');
-
         abort(401);
     }
 }
