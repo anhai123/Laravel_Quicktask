@@ -5,6 +5,7 @@ use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LanguageController;
+use App\View\Components\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,8 +20,26 @@ use App\Http\Controllers\LanguageController;
 Route::resource('tasks', TaskController::class);
 
 Route::get('/', function () {
+    // return view('welcome', [
+    //     'component' => new User
+    //   ]);
     return view('welcome');
+
 });
+Route::prefix('/users')
+    // ->middleware('admin')
+    ->controller(UserController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('users.index');
+        Route::get('/create', 'create')->name('users.create');
+        Route::get('/edit', 'edit')->name('users.edit');
+        Route::get('/{user}/edit', 'edit')->name('users.edit');
+        Route::get('/{user}', 'show')->name('users.show');
+        Route::post('/', 'store')->name('users.store');
+        Route::put('/{user}', 'update')->name('users.update');
+        Route::delete('/{user}', 'destroy')->name('users.destroy');
+        Route::get('/{user}/tasks', 'tasks')->name('users.tasks');
+    });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
