@@ -74,7 +74,7 @@
     "Your email address is unverified.": "Your email address is unverified.",
     "User list": "User List",
     "User edit": "Edit user",
-    "Fill name": "Fill your username",
+    "Fill username": "Fill your username",
     "First Name": "First name",
     "Fill first name": "Fill your first name",
     "Last Name": "Last name",
@@ -92,5 +92,6 @@
     "Fill task name": "Fill task name",
     "Description": "Description",
     "Fill description": "Fill description",
-    "Create": "Create"
+    "Create": "Create",
+    "Create user": "Create user"
 }

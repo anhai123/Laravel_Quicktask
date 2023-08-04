@@ -12,7 +12,7 @@
                     {{ __("Task edit") }}
                 </div>
             </div>
-            <form action="{{ route('tasks.update', ['task' => 1]) }}" method="POST">
+            <form action="{{ route('tasks.update', ['task' => $task->id]) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="mt-4">

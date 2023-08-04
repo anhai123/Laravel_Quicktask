@@ -11,8 +11,9 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100 bg-lime-500">
                     {{ __("Task create") }}
                 </div>
+
             </div>
-            <form action="" method="POST">
+            <form action="{{ route('tasks.store') }}" method="POST">
                 @csrf
                 @method('POST')
                 <div class="mt-4">

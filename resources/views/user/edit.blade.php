@@ -16,11 +16,12 @@
                 @csrf
                 @method('PUT')
                 <div class="mt-4">
-                    <x-input-label for="name" :value="__('Name')" />
-                    <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
-                        value="{{ $user->username }}" required autocomplete="name" :placeholder="__('Fill name')" />
+                    <x-input-label for="username" :value="__('Username')" />
+                    <x-text-input id="username" class="block mt-1 w-full" type="text" name="username"
+                        value="{{ $user->username }}" required autocomplete="username"
+                        :placeholder="__('Fill username')" />
 
-                    @error('name')
+                    @error('username')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>

@@ -74,7 +74,7 @@
     "Your email address is unverified.": "Địa chỉ email của bạn chưa được xác minh.",
     "User list": "Danh sách người dùng",
     "User edit": "Chỉnh sửa thông tin",
-    "Fill name": "Điền tên đăng nhập của bạn",
+    "Fill username": "Điền tên đăng nhập của bạn",
     "First Name": "Họ",
     "Fill first name": "Điền họ của bạn",
     "Last Name": "Tên",
@@ -92,5 +92,6 @@
     "Fill task name": "Điền tên nhiệm vụ",
     "Description": "Miêu tả",
     "Fill description": "Điền miêu tả nhiệm vụ",
-    "Create": "Tạo"
+    "Create": "Tạo",
+    "Create user": "Tạo người dùng"
 }

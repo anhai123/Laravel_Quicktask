@@ -35,29 +35,40 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    Magic Mouse 2
-                                </th>
+                            @foreach ($tasks as $index => $task)
+                            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600"
+                                onclick="window.location='{{ route('tasks.show', ['task' => $task->id]) }}';">
                                 <td class="px-6 py-4">
-                                    Black
+                                    {{ $task->id }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    Accessories
+                                    {{ $task->name }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $task->description }}
                                 </td>
                                 <td class="px-6 py-4 text-right">
-                                    <a href="{{ route('tasks.edit', ['task' => 1]) }}">
+                                    @if ($task->user_id == Auth::user()->id)
+                                    <a href="{{ route('tasks.edit', ['task' => $task->id]) }}">
                                         <button
                                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4">
                                             {{ __('Edit') }}
                                         </button>
                                     </a>
-                                    <x-danger-button class="mt-4">
-                                        {{ __('Delete') }}
-                                    </x-danger-button>
+                                    @endif
+                                    @if ($task->user_id == Auth::user()->id || Auth::user()->is_admin == true)
+                                    <form action="{{ route('tasks.destroy', ['task' => $task->id]) }}"
+                                        class="inline-block" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <x-danger-button class="mt-4">
+                                            {{ __('Delete') }}
+                                        </x-danger-button>
+                                    </form>
+                                    @endif
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

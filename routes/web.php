@@ -27,7 +27,8 @@ Route::get('/', function () {
 
 });
 Route::prefix('/users')
-    // ->middleware('admin')
+    ->middleware('auth')
+    ->middleware('admin')
     ->controller(UserController::class)
     ->group(function () {
         Route::get('/', 'index')->name('users.index');
