@@ -20,11 +20,6 @@ class CheckAdmin
         if ($user && $user->is_admin) {
             return $next($request);
         }
-<<<<<<< HEAD
-=======
-        return redirect('/');
-
->>>>>>> a078951 (Chapter 9)
         abort(401);
     }
 }
